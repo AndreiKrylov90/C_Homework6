@@ -2,10 +2,10 @@
 // 0, 7, 8, -2, -2 -> 2
 // 1, -7, 567, 89, 223-> 3
 
-Console.WriteLine("Введите число - длину массива");
-if(!int.TryParse(Console.ReadLine(), out int n) || n < 0)
+Console.WriteLine("Введите количество чисел, которые Вы хотите ввести");
+if(!int.TryParse(Console.ReadLine(), out int n) || n < 1)
 {
-Console.WriteLine("Введено нецелое или отрицательное число");
+Console.WriteLine("Введено нецелое или отрицательное число или 0");
 return;
 }
 
@@ -13,7 +13,7 @@ void FillArray(int[] array)
 {
     for (int i = 0; i < n; i++)
     {
-        Console.WriteLine("Введите число");
+        Console.WriteLine($"Введите число {i+1}");
         if(!int.TryParse(Console.ReadLine(), out int A))
         {
             Console.WriteLine("Введено нецелое число");
@@ -22,7 +22,7 @@ void FillArray(int[] array)
         array[i] = A;
     }
 }
-int[] array = new int[8];
+int[] array = new int[n];
 FillArray(array);
 
 void PrintArray(int[] array)
@@ -47,4 +47,4 @@ return count;
 
 Console.WriteLine();
 int result = FindPositive(array);
-Console.WriteLine($"Количество положительных чисел в массиве равно {result}");
+Console.WriteLine($"Количество введенных положительных чисел равно {result}");
